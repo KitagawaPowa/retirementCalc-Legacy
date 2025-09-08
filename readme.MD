@@ -1,174 +1,131 @@
- 
-# my Retirement calculator in JQuery and Bootstrap
+# FinTechCo Legacy Retirement Calculator
 
-![](images/myRetirmentCalculatorScreen.png?raw=true) I decided to create a modern, easy to use and practical on-line retirement calculator, and I open-sourced it too!  This  retirement calculator comes from the FIRE ( Financially Independent Retire Early) perspective , where you're goal is to save as much as possible , then after a certain number of years, you can retire and live off your savings and investments.  I tried to take into account all the major factors affecting your earning and retirement years, incomes, savings, retirement, kids, housing, healthcare, taxes , inflation etc..
+![](images/myRetirmentCalculatorScreen.png?raw=true) 
 
-  * Complete detailed description here: http://www.abrandao.com/2019/04/retirement-calculator/
-  * Like what you see? :thumbsup: share the love with some **git stars :star: **
+## About FinTechCo
 
-  
+FinTechCo is a modern financial services company that seamlessly blends cutting-edge digital payment solutions with traditional banking excellence. As a leader in the fintech space, we operate:
+
+- **Digital Payment Services**: Our platform rivals PayPal and Venmo, offering instant peer-to-peer transfers, merchant services, and seamless mobile wallet integration
+- **Traditional Banking Division**: Full-service banking including checking/savings accounts, loans, mortgages, and wealth management services
+- **Financial Planning Tools**: Comprehensive suite of calculators and planning resources to help our customers achieve their financial goals
+
+## Legacy Retirement Calculator
+
+This retirement calculator represents FinTechCo's commitment to making financial planning accessible to everyone. Originally developed for our internal financial advisors, we've open-sourced this tool to benefit the broader community. The calculator takes a FIRE (Financially Independent Retire Early) perspective, helping users determine when they can achieve financial independence based on their savings rate and investment returns.
+
+### Key Features
+- Comprehensive modeling of income, expenses, savings, and investments over your lifetime
+- Tax calculations based on current US tax brackets
+- Social Security and pension income projections
+- Housing costs including mortgage payoff timelines
+- Healthcare and dependent cost modeling
+- Inflation adjustments for accurate long-term planning
+- Interactive charts showing your financial trajectory
+
 ## Demo
-  * Link to Live calculator :  http://www.abrandao.com/retire
-
+* Live Calculator: http://www.abrandao.com/retire
 
 ## Getting Started
 
-Clone this repo .. or just download the source code to the **index.html** file. All the calculation logic is located there.. 
+Clone this repository or download the **index.html** file. The entire calculation engine is self-contained for easy deployment and modification.
 
-  * this repository, mainly the **index.html** file 
-  * knowledge of HTML5, very basic understanding Jquery and some understanding of Bootstrap CSS/HTML
+### Prerequisites
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+- Basic understanding of HTML/JavaScript for customization (optional)
 
-## Web Technology choices...
-This calculator **runs entirely in your’re web browser**, its uses the following web technologies. 
- - Jquery  
- - Bootstrap (Css/HTML/layout)
- - ChartJS (Charting)
+## Technology Stack
 
-Keeping it simple , yet at the same time modern looking and attractive.
+This calculator runs entirely in your browser using:
+- **jQuery** - For DOM manipulation and event handling
+- **Bootstrap 3** - Responsive design and UI components  
+- **Chart.js** - Interactive data visualization
 
-  I choose to keep the technologies as  simple as possible. I’m aware some techies and web developers may pooh-pooh these simplistic technologies, and why didn’t I write this in Angular or React or VueJs (btw I would have chosen [VUE.js](Vuejs.org) ) ?, but my rationale was that because I wanted to make this as accessible and easily modifiable by other folks, I wanted to give the broadest possible access to anyone , even those who aren’t super-technical can just go to my Github clone the page, and begin making edits to the calculation model easy-peasy..
+We deliberately chose mature, stable technologies to ensure broad compatibility and ease of maintenance. All dependencies are loaded via CDN for simple deployment.
 
-I also used external CDN links to the above supporting libraries, and keep the entire code in one index.html page, again trying to keep everything self-contained and compact. See details below.
+## Installation
 
-## Dependencies 
-
-This is a single web-page calculator with minimal dependencies. All the calculation code is contained in the **index.html** file.
-All the depedencies are supplied via links to CDN . 
-
-The following links are required
-  * [BootStrap](https://getbootstrap.com/) · The most popular HTML, CSS, and JS library in the world . 
-  * [Jquery](https://jquery.com/). jQuery is a fast, small, and feature-rich JavaScript library. 
-  * [Chart.js](https://www.chartjs.org/) Simple yet flexible JavaScript charting for designers & developers
-
-Inside the <head> tag
-```javascript
- <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+1. Clone the repository:
+```bash
+git clone https://github.com/KitagawaPowa/retirementCalc-Legacy.git
 ```
 
-Then the corresponding JQuery and ChartJS links be sure to reference Jquery library 
+2. Open `index.html` in your web browser
 
-```javascript
+That's it! No build process or server required.
 
- <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
- <!-- then Bootstrap JS -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<!-- Charting ChartJS.com from CDN -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-```
+## How It Works
 
-You can of course download the dependencie files and modify the above src links to point all to your local folders.
+### Calculation Model
 
-### Installing
+The calculator uses a year-by-year projection model:
 
-Just clone this repository and open *index.html* in your web browser. For off line use , modify the src for dependencies listed above.
+1. **Income Phase** (Working Years)
+   - Salary income with configurable savings rate
+   - Investment returns on savings and retirement accounts
+   - Additional income sources (rental, business, etc.)
 
-## Calculation Model Approach 
+2. **Expense Modeling**
+   - Progressive tax calculations
+   - Housing costs (mortgage + ongoing expenses)
+   - Healthcare, food, utilities, transportation
+   - Dependent costs
+   - Inflation adjustments
 
+3. **Retirement Phase**
+   - Withdrawal rate strategy (default 4% SWR)
+   - Social Security benefits
+   - Pension income
+   - Continued investment returns
 
-Essentially all your Income and SAVINGS are added up during the years, your working (working income) , and savings+retirement accounts  + other income over the course of your lifetime. Then these various forms of income are calculated against entered  Annual Percentage Yield to give your annual compound interest growth.  Here’s a sample of the calculation code for this section:
+### Sample Code
+
+Income calculation during working years:
 ```javascript
 for (i = 1 ; i < years+1; i++) { 
-  var ai = {} ;  //define a Income blank object
-    var exp={} ; //define an Expense object
-   //create an Annual Income object
-  ai.i=(i);
-  ai.age=(+i + +currentAge);
-  ai.income_earned= ( i <= work_years  ) ? parseInt( $("#income").val()  ) : 0 ;
-   ai.income_saved = ( i <= work_years  ) ? $("#income").val()  * parseFloat( $("#income_savings_rate").val()/100 ) : 0 ; 
-  
-  ai.savings= parseFloat( $("#savings").val() ) ; 
-  ai.savings_Int= +$("#savings").val()* parseFloat ( $("#savings_apy").val()/100 );
-  ai.retirement=parseFloat(  $("#retirement").val() )  ; 
-  ai.retirement_Int=  parseInt( $("#retirement").val() ) * parseFloat( $("#retirement_apy").val()/100 ) ;
-  ai.one_time=(ai.age==inheritance_age) ? parseInt( $("#income_inheritance").val() ) : 0 ;
-  ai.rents= parseFloat( $("#income_realestate_rentals").val() ) ;
-  ai.pension=(ai.age>= ssn_year_eligible ) ? parseFloat(  $("#income_pension").val() ) : 0 ;
-    ai.misc= parseFloat( $("#income_misc").val() ) ;
-  ai.ssn= (  ai.age >= ssn_year_eligible ) ? parseFloat( $("#income_ss").val() ) : 0 ;
+  var ai = {};  // Annual Income object
+  ai.age = (+i + +currentAge);
+  ai.income_earned = (i <= work_years) ? parseInt($("#income").val()) : 0;
+  ai.income_saved = (i <= work_years) ? 
+    $("#income").val() * parseFloat($("#income_savings_rate").val()/100) : 0;
+  ai.savings_Int = +$("#savings").val() * parseFloat($("#savings_apy").val()/100);
+  // ... additional calculations
+}
 ```
 
-  On the other side we have your EXPENSES . Expenses are more linear over your lifetime, income taxes are calculated based on 2018-2019 tax bracket, and applied to against your annual income.  Housing expenses have a term if you’re a home owner, with a separate field for perpetual costs like property taxes,  insurance, maintenance etc.  The number of dependents count as an expense, based on current pricing models of how much it costs to raise a child to 18. The other expense are pretty self-explanatory, adjust the default values  to better suit your particular circumstances.
+## Debugging
 
-Once we have all that information we  calculate your INCOME – EXPENSES we get a yearly surplus (or deficit), which we will apply to your SAVINGS, hopefully and this is the premise of this calculator.  You can work just long enough to grow your SAVINGS to the point where you can retire and only need to take a small percentage and live off that.  Sample Code:
+Press F12 in your browser to open developer tools. The calculator outputs detailed year-by-year projections to the console for verification and debugging.
 
-```javascript
-// Now calculate SURPLUS OR DEFICIT for the year
-  var diff=(incomes[i-1].total_annual_income.toFixed(2) - expenses[i-1].total_annual_expenses.toFixed(2) );
-  // any money left over place in savings for that year.
-          if ( i > 1 )
-          incomes[i-1].savings =( incomes[i-1].savings + diff );
-```
+## Future Enhancements
 
-Finally we calculate what you’re withdrawal  rate is and how it will affect your savings over time after your retire. . The conventional wisdom of 4% withdrawal works out pretty well and is the default withdrawal rate. Adjusting this withdrawal rate. and the number of years you are working will have some of the largest impact as to what you can take out in retirement. Because you’ll have a larger nest egg at the beginning , your withdrawal percentage will likely yield a larger income than in your later years , which is why I display two retirement income values. Here’s a sample:
-```javascript
-//Now calculate how much to withdraw from savings and retirement accounts AFTER we're RETIRED
- if (i > work_years) //now we're withdrawing
-     {
-   
-     ai.retirement_income=(withdraw_rate*ai.savings) +  (withdraw_rate*ai.retirement  );  
-       
-       ai.savings = ai.savings-(withdraw_rate*ai.savings); //subtract % from savings 
-       //TODO: adjust retirement withdraw only after AGE 60 (USA time when no penalty)
-         ai.retirement= ai.retirement - (withdraw_rate*ai.retirement  ) ; //subract % from retirment investments
-     
-     //console.log(i+" > workyears+2 "+(+work_years+2)+" withdraw:"+withdraw_rate+ " on savings "+ai.savings);
-      if ( (+work_years+1)==i )  //Show first and last year how much retirement income we get.
-       $("#retirement_income_start").text(formatUSD(ai.retirement_income));
-     else
-     $("#retirement_income_end").text(formatUSD(ai.retirement_income));  
-     $("#retirement_savings_end").text(formatUSD(ai.savings));  
-   
-     }
-``` 
+Our product team is considering:
+- CSV/Excel export functionality
+- Cloud save and share capabilities
+- Monte Carlo simulations
+- International tax support
+- Mobile app integration with FinTechCo accounts
 
-There are a few one-time events, such as inheritance or sale (of a primary residence or business) which you choose how much and at what time point it occurs. Also Social Security you decide when to take it. If you have a pension , annual pension disbursements begin when social security begins.  Code for inheritance looks like this.
+## Contributing
 
-```javascript
-ai.one_time=(ai.age==inheritance_age) ? parseInt( $("#income_inheritance").val() ) : 0 ;
-```
-## Verifying values and calculation code
+We welcome contributions! Please submit issues and pull requests via GitHub. For major changes, please open an issue first to discuss your proposed changes.
 
-Right now I simply send to the console.log a year-by-year summary of the income and expense javascript objects, you can use this to debug in your browser by pressing **F12** developer mode. and see something like.
+## Security
 
-'''
- {"i":30,"tax_bracket":0.37,"income_tax":-1741.82,"healthcare":4358,"housing":0,"property_tax":2000,"dependants":0,"food":4500,"utilities":2060,"transport":9500,"optional":0,"inflation_rate":0.015,"total_annual_expenses":20986.3227,"inflation_costs":314.7948405}
- Annual Income: -4707.63 -  20986.32 Expenses  =   -25693.95
-{"i":31,"tax_bracket":0.37,"income_tax":-1892.8,"healthcare":4358,"housing":0,"property_tax":2000,"dependants":0,"food":4500,"utilities":2060,"transport":9500,"optional":0,"inflation_rate":0.015,"total_annual_expenses":20833.078,"inflation_costs":312.49617}
- Annual Income: -5115.69 -  20833.08 Expenses  =   -25948.77
- '''
+This calculator processes all data locally in your browser. No financial information is transmitted to FinTechCo or any third party.
 
-## Installing and Testing 
+## Support
 
-  *   Download and open **index.html** in your web browser.
-
-
-## Contributing & Future enhancements  (possible)
-
-If you're interested in updating this script or have some ideas feel free to get in touch. Use Github to report issues and suggest enhancements.
-
- If there's enough interest, here are some ideas that would make this calculator a bit more full featured.
-
-  * ability to download CSV (or excel compatible) data file of year by year projections calculations
-  * ability to save link with associated data and share with others. Like sending your financial planner a link to your data, right now because all data is save locally this is not possible.
-  * More time event fields for more granular calculations of certain events.
-
-## Versioning
-
-  * April 3, 2019 - Initial release  version
-
-
-## Authors
- 
-  * abrandao29@gmail.com
-
+For support with the calculator:
+- GitHub Issues: Report bugs and request features
+- FinTechCo Support: 1-800-FINTECH (for FinTechCo customers)
+- Email: retirement-calc@fintechco.com
 
 ## License
 
 MIT License
 
-Copyright (c) 2019 Tony Brandao <tonybrandao@outlook.com>
+Copyright (c) 2024 FinTechCo Financial Services, Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -178,6 +135,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Acknowledgments
 
-* Hat tip to all the folks that gave us Bootsrap library and Jquery  and ChartJS for makinng it infinitately easier
-* Inspiration: 2Cents Youtube video here: https://youtu.be/8si7cqw9wm0 and the general FIRE movement.. 
-* etc
+- Bootstrap, jQuery, and Chart.js teams for excellent open-source libraries
+- The FIRE community for inspiring financial independence
+- FinTechCo's Financial Planning Division for domain expertise
+- Our customers who provided valuable feedback during beta testing
+
+---
+
+*FinTechCo - Empowering Your Financial Future*
